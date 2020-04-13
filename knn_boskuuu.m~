@@ -47,6 +47,6 @@ panjangtabel2018=length(Data2018jurusan);
 for i = 1:panjangtabel2018
     readbyline2018 = Data2018nilai(i:i,:);
        disp(readbyline2018);
-       kelashasil=knnclassify(readbyline2018,Nilai20162017,Jurusan20162017,1);
+       kelashasil=knnclassify(readbyline2018,Nilai20172018,Jurusan20172018,1);
        disp(kelashasil);
 end
