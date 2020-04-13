@@ -13,15 +13,14 @@ Data2019jurusan=table2cell(readtable('Data2019jurusan.csv'));%bacajurusan
 % Latih2016=[Data2016nilai,Data2016jurusan];
 % Latih2017=[Data2017nilai,Data2017jurusan];
 % Latih2018=[Data2018nilai,Data2018jurusan];
-% Latih2019=[Data2019nilai,Data2019jurusan];
-% M2016= fitcknn(Latih2016,'JURUSAN');
-% M2017= fitcknn(Latih2017,'JURUSAN');
+% Latih2019=[Data2019nilai,Data2019jurusan];%gabungannilaijurusanga dipakai
+
 Nilai20162017 = [Data2016nilai; Data2017nilai;];
 Nilai20162018 = [Data2016nilai; Data2018nilai;];
 Nilai20172018 = [Data2017nilai; Data2018nilai;];
 Jurusan20162017 = [Data2016jurusan; Data2017jurusan;];
 Jurusan20162018 = [Data2016jurusan; Data2018jurusan;];
-Jurusan20172018 = [Data2017jurusan; Data2018jurusan;];
+Jurusan20172018 = [Data2017jurusan; Data2018jurusan;];%gabungan2angkatan
 
 %2017vs20162018
 panjangtabel2017=length(Data2017jurusan);
