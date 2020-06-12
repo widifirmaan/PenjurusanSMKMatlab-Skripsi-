@@ -12,11 +12,24 @@ Nilai201620172018 = [Data2016nilai; Data2017nilai; Data2018nilai;];
 Jurusan201620172018 = [Data2016jurusan; Data2017jurusan; Data2018jurusan;];
 panjangtabel=length(Jurusan201620172018);
 
-%tanpanorm
+%normalisasi minmax 1-10
+for i = 1:length(Nilai201620172018)
+    readbyline = Nilai201620172018(i,:);
+    for j = 1:6
+        readcol=readbyline(1,j:j);
+        minim = min(Nilai201620172018(1:end,j));
+        maxim = max(Nilai201620172018(1:end,j));
+        norm10(j)=(((readcol-minim)*(100-1))/(maxim-minim))+1;
+    end
+    resultnorm10(i,:)=norm10(:,:);
+end
+partisi = panjangtabel/3;
+partisi = round(partisi);
+
 %partisiuji
-partisi1 = Nilai201620172018(1:partisi,1:6);
-partisi2 = Nilai201620172018(partisi+1:partisi+partisi,1:6);
-partisi3 = Nilai201620172018(partisi+partisi+1:end,1:6);
+partisi1 = resultnorm10(1:partisi,1:6);
+partisi2 = resultnorm10(partisi+1:partisi+partisi,1:6);
+partisi3 = resultnorm10(partisi+partisi+1:end,1:6);
 partisijurusan1 = Jurusan201620172018(1:partisi,1);
 partisijurusan2 = Jurusan201620172018(partisi+1:partisi+partisi,1);
 partisijurusan3 = Jurusan201620172018(partisi*2+1:end,1);
@@ -62,39 +75,3 @@ end
 hasilbostrans=hasilbos3';
 hasilmatrik3=confusionmat(partisijurusan3,hasilbostrans);
 akurasi3=(sum(diag(hasilmatrik3))/sum(sum(hasilmatrik3)))*100;
-
-
-
-
-
-%ereerwvrbrgsgsrz%
-
-% trainpartisi1 = [Data2016nilai; Data2017nilai; Data2018nilai;];
-% trainpartisi2 = [Data2016nilai; Data2017nilai; Data2019nilai;];
-% trainpartisi3 = [Data2016nilai; Data2018nilai; Data2019nilai;];
-% trainpartisi4 = [Data2017nilai; Data2018nilai; Data2019nilai;];
-% jurusantrainpartisi1 = [Data2016jurusan; Data2017jurusan; Data2018jurusan;];
-% jurusantrainpartisi2 = [Data2016jurusan; Data2017jurusan; Data2019jurusan;];
-% jurusantrainpartisi3 = [Data2016jurusan; Data2018jurusan; Data2019jurusan;];
-% jurusantrainpartisi4 = [Data2017jurusan; Data2018jurusan; Data2019jurusan;];
-% %gabungan3angkatan
-% 
-% panjangtabel2019=length(Data2019jurusan);
-% for i = 1:panjangtabel2019
-%     readbyline2019 = Data2019nilai(i:i,:);
-%        kelashasil=knnclassify(readbyline2019,trainpartisi1,jurusantrainpartisi1,3);
-%        hasilbos2019(i)=[kelashasil];
-% end
-% hasilbos2019=hasilbos2019';
-% hasilmatrik2019=confusionmat(Data2019jurusan,hasilbos2019);
-% akurasi1=(sum(diag(hasilmatrik2019))/sum(sum(hasilmatrik2019)))*100;
-% 
-% panjangtabel2018=length(Data2018jurusan);
-% for i = 1:panjangtabel2018
-%     readbyline2018 = Data2018nilai(i:i,:);
-%        kelashasil=knnclassify(readbyline2018,trainpartisi2,jurusantrainpartisi2,3);
-%        hasilbos2018(i)=[kelashasil];
-% end
-% hasilbos2018=hasilbos2018';
-% hasilmatrik2018=confusionmat(Data2018jurusan,hasilbos2018);
-% akurasi1=(sum(diag(hasilmatrik2018))/sum(sum(hasilmatrik2018)))*100;
