@@ -85,12 +85,14 @@ hasilmatrik3=confusionmat(partisijurusan3,hasilbostrans);
 akurasi3=(sum(diag(hasilmatrik3))/sum(sum(hasilmatrik3)))*100;
 
 %data tunggal
-asda = [98 95.5 93 72.5 89.75 359];
+asda = [65 86 67.5 58 69.13	276.50];
 for j = 1:6
         readcol=asda(1,j:j);
         minim = min(Nilai201620172018(1:end,j));
         maxim = max(Nilai201620172018(1:end,j));
         norm10(j)=(((readcol-minim)*(10-1))/(maxim-minim))+1;
 end
-coba = knnclassify(asda,resultnorm10,Jurusan201620172018,3);
+
+coba = knnclassify(norm10,resultnorm10,Jurusan201620172018,3);
+% coba = knn(resultnorm10, Jurusan201620172018, norm10,3);
 disp(coba);
