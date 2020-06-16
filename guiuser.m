@@ -22,7 +22,7 @@ function varargout = guiuser(varargin)
 
 % Edit the above text to modify the response to help guiuser
 
-% Last Modified by GUIDE v2.5 13-Jun-2020 13:18:09
+% Last Modified by GUIDE v2.5 16-Jun-2020 22:45:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -74,18 +74,18 @@ varargout{1} = handles.output;
 
 
 
-function edit1_Callback(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
+function mat_Callback(hObject, eventdata, handles)
+% hObject    handle to mat (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit1 as text
-%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+% Hints: get(hObject,'String') returns contents of mat as text
+%        str2double(get(hObject,'String')) returns contents of mat as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
+function mat_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to mat (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -97,18 +97,18 @@ end
 
 
 
-function edit2_Callback(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
+function ind_Callback(hObject, eventdata, handles)
+% hObject    handle to ind (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit2 as text
-%        str2double(get(hObject,'String')) returns contents of edit2 as a double
+% Hints: get(hObject,'String') returns contents of ind as text
+%        str2double(get(hObject,'String')) returns contents of ind as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
+function ind_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ind (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -120,18 +120,18 @@ end
 
 
 
-function edit5_Callback(hObject, eventdata, handles)
-% hObject    handle to edit5 (see GCBO)
+function ing_Callback(hObject, eventdata, handles)
+% hObject    handle to ing (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit5 as text
-%        str2double(get(hObject,'String')) returns contents of edit5 as a double
+% Hints: get(hObject,'String') returns contents of ing as text
+%        str2double(get(hObject,'String')) returns contents of ing as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit5_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit5 (see GCBO)
+function ing_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ing (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -143,18 +143,18 @@ end
 
 
 
-function edit6_Callback(hObject, eventdata, handles)
-% hObject    handle to edit6 (see GCBO)
+function ipa_Callback(hObject, eventdata, handles)
+% hObject    handle to ipa (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit6 as text
-%        str2double(get(hObject,'String')) returns contents of edit6 as a double
+% Hints: get(hObject,'String') returns contents of ipa as text
+%        str2double(get(hObject,'String')) returns contents of ipa as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit6_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit6 (see GCBO)
+function ipa_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ipa (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -166,18 +166,18 @@ end
 
 
 
-function edit7_Callback(hObject, eventdata, handles)
-% hObject    handle to edit7 (see GCBO)
+function jumlahrek_Callback(hObject, eventdata, handles)
+% hObject    handle to jumlahrek (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit7 as text
-%        str2double(get(hObject,'String')) returns contents of edit7 as a double
+% Hints: get(hObject,'String') returns contents of jumlahrek as text
+%        str2double(get(hObject,'String')) returns contents of jumlahrek as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit7_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit7 (see GCBO)
+function jumlahrek_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to jumlahrek (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -186,3 +186,34 @@ function edit7_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+%getSetting
+k = cell2mat(evalin('base','k'));
+norm = cell2mat(evalin('base','norm'));
+nilai = evalin('base','nilai');
+jurusan = evalin('base','jurusan');
+dataraw = evalin('base','dataraw');
+
+mat = str2double(get(handles.mat, 'string'));
+ind = str2double(get(handles.ind, 'string'));
+ipa = str2double(get(handles.ipa, 'string'));
+ing = str2double(get(handles.ing, 'string'));
+avg = (mat+ind+ipa+ing)/4;
+sum = mat+ind+ipa+ing;
+inputuser = [mat,ind,ipa,ing,avg,sum];
+assignin('base','inputuser',inputuser);
+        for j = 1:6
+        readcol=inputuser(1,j:j);
+        minim = min(dataraw(1:end,j));
+        maxim = max(dataraw(1:end,j));
+        normalisasi(j)=(((readcol-minim)*(norm-1))/(maxim-minim))+1;
+        end
+knndata=funknn(normalisasi,nilai,jurusan,k);
+set(handles.text11, 'string', knndata);

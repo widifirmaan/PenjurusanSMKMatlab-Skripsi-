@@ -93,6 +93,6 @@ for j = 1:6
         norm10(j)=(((readcol-minim)*(10-1))/(maxim-minim))+1;
 end
 
-coba = knnclassify(norm10,resultnorm10,Jurusan201620172018,3);
+coba = funknn(norm10,resultnorm10,Jurusan201620172018,3);
 % coba = knn(resultnorm10, Jurusan201620172018, norm10,3);
 disp(coba);

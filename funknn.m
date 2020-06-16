@@ -1,7 +1,5 @@
 function outClass = funknn(sample, TRAIN, group, K, distance,rule)
 
-warning(message('bioinfo:knnclassify:incompatibility'));
-
 bioinfochecknargin(nargin,3,mfilename)
 
 % grp2idx sorts a numeric grouping var ascending, and a string grouping

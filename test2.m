@@ -25,8 +25,9 @@ for i = 1:length(Nilai201620172018)
         maxim = max(Nilai201620172018(1:end,j));
         norm10(j)=(((readcol-minim)*(normalisasi-1))/(maxim-minim))+1;
     end
-    resultnorm10(i,:)=norm10(:,:);
+    resultnorm(i,:)=norm10(:,:);
 end
+
 partisi = panjangtabel/3;
 partisi = round(partisi);
 

@@ -122,7 +122,7 @@ else
    disp(['File Loaded ', fullfile(path,file)]);
    dataraw=table2cell(readtable(file,'Delimiter',';'));
    assignin('base','dataraw',dataraw);
-   set(handles.filePath,'string',fullfile(path,file));
+   set(handles.filePath,'string',path);
    set(handles.tabelDataRaw, 'Data', dataraw);
    nilai = cell2mat(dataraw(:,1:6));
    jurusan = dataraw(:,7);
