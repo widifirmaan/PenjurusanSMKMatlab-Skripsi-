@@ -1,4 +1,4 @@
-%membersihkan sampah kenangan bos
+%membersihkan
 clc
 clear all
 
@@ -52,38 +52,38 @@ panjangpartisi2 = length(partisi2);
 panjangpartisi3 = length(partisi3);
 
 %knn
-nilaik=3;
+nilaik=1;
 
-%kfold ke 1 dan akurasi
+%akurasi
 for i = 1:panjangpartisi1
     readbyline = partisi1(i:i,:);
        kelashasil=knnclassify(readbyline,latihpartisi1,latihpartisijurusan1,nilaik);
        hasilbos1(i)=[kelashasil];
 end
-hasilbostrans=hasilbos1';
-hasilmatrik1=confusionmat(partisijurusan1,hasilbostrans);
+hasilbostrans1=hasilbos1';
+hasilmatrik1=confusionmat(partisijurusan1,hasilbostrans1);
 akurasi1=(sum(diag(hasilmatrik1))/sum(sum(hasilmatrik1)))*100;
-
+plotConfMat(hasilmatrik1);
 %kfold ke 2 dan akurasi
 for i = 1:panjangpartisi2
     readbyline = partisi2(i:i,:);
        kelashasil=knnclassify(readbyline,latihpartisi2,latihpartisijurusan2,nilaik);
        hasilbos2(i)=[kelashasil];
 end
-hasilbostrans=hasilbos2';
-hasilmatrik2=confusionmat(partisijurusan2,hasilbostrans);
+hasilbostrans2=hasilbos2';
+hasilmatrik2=confusionmat(partisijurusan2,hasilbostrans2);
 akurasi2=(sum(diag(hasilmatrik2))/sum(sum(hasilmatrik2)))*100;
-
+plotConfMat(hasilmatrik2);
 %kfold ke 3 dan akurasi
 for i = 1:panjangpartisi3
     readbyline3 = partisi3(i:i,:);
        kelashasil=knnclassify(readbyline3,latihpartisi3,latihpartisijurusan3,nilaik);
        hasilbos3(i)=[kelashasil];
 end
-hasilbostrans=hasilbos3';
-hasilmatrik3=confusionmat(partisijurusan3,hasilbostrans);
+hasilbostrans3=hasilbos3';
+hasilmatrik3=confusionmat(partisijurusan3,hasilbostrans3);
 akurasi3=(sum(diag(hasilmatrik3))/sum(sum(hasilmatrik3)))*100;
-
+plotConfMat(hasilmatrik3);
 %data tunggal
 asda = [65 86 67.5 58 69.13	276.50];
 for j = 1:6
@@ -94,5 +94,7 @@ for j = 1:6
 end
 
 coba = funknn(norm10,resultnorm10,Jurusan201620172018,3);
-% coba = knn(resultnorm10, Jurusan201620172018, norm10,3);
-disp(coba);
+% kNNModel = fitcknn(resultnorm10,Jurusan201620172018,'NumNeighbors',3);
+% % coba = knn(resultnorm10, Jurusan201620172018, norm10,3);
+% Group = predict(kNNModel,norm10);
+% disp(Group);
