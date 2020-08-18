@@ -31,9 +31,9 @@ partisi = panjangtabel/3;
 partisi = round(partisi);
 
 %partisi uji
-partisi1 = resultnorm10(1:partisi,1:6);
-partisi2 = resultnorm10(partisi+1:partisi+partisi,1:6);
-partisi3 = resultnorm10(partisi+partisi+1:end,1:6);
+partisi1 = resultnorm10(1:partisi,1:4);
+partisi2 = resultnorm10(partisi+1:partisi+partisi,1:4);
+partisi3 = resultnorm10(partisi+partisi+1:end,1:4);
 partisijurusan1 = Jurusan201620172018(1:partisi,1);
 partisijurusan2 = Jurusan201620172018(partisi+1:partisi+partisi,1);
 partisijurusan3 = Jurusan201620172018(partisi*2+1:end,1);
@@ -50,14 +50,21 @@ latihpartisijurusan3 = [partisijurusan1; partisijurusan2];
 panjangpartisi1 = length(partisi1);
 panjangpartisi2 = length(partisi2);
 panjangpartisi3 = length(partisi3);
+panjangpartisilatih1 = length(latihpartisi1);
+panjangpartisilatih2 = length(latihpartisi2);
+panjangpartisilatih3 = length(latihpartisi3);
 
 %knn
 nilaik=1;
 
 %akurasi
+hasilbos=KNN_(nilaik,partisi1,partisijurusan1,latihpartisi1,latihpartisijurusan1);
+
+
 for i = 1:panjangpartisi1
     readbyline = partisi1(i:i,:);
        kelashasil=knnclassify(readbyline,latihpartisi1,latihpartisijurusan1,nilaik);
+       KNN_(nilaik,data,labels,t_data,t_labels)
        hasilbos1(i)=[kelashasil];
 end
 hasilbostrans1=hasilbos1';

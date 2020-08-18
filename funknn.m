@@ -77,14 +77,6 @@ else
     error(message('bioinfo:knnclassify:InvalidRule'));
 end
 
-% Calculate the distances from all points in the training set to all points
-% in the test set.
-
-if strncmpi(distance,'hamming',3)
-        if ~all(ismember(sample(:),[0 1]))||~all(ismember(TRAIN(:),[0 1]))
-            error(message('bioinfo:knnclassify:HammingNonBinary'));
-        end
-end
 dIndex = knnsearch(TRAIN,sample,'distance', distance,'K',K);
 % find the K nearest
 

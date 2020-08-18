@@ -205,11 +205,9 @@ mat = str2double(get(handles.mat, 'string'));
 ind = str2double(get(handles.ind, 'string'));
 ipa = str2double(get(handles.ipa, 'string'));
 ing = str2double(get(handles.ing, 'string'));
-avg = (mat+ind+ipa+ing)/4;
-sum = mat+ind+ipa+ing;
-inputuser = [mat,ind,ipa,ing,avg,sum];
+inputuser = [mat,ind,ipa,ing];
 assignin('base','inputuser',inputuser);
-        for j = 1:6
+        for j = 1:4
         readcol=inputuser(1,j:j);
         minim = min(dataraw(1:end,j));
         maxim = max(dataraw(1:end,j));
