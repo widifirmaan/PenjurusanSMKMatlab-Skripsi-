@@ -29,11 +29,12 @@ for i = 1:length(Nilai201620172018)
 end
 partisi = panjangtabel/3;
 partisi = round(partisi);
-
+n=1
+m=1
 %partisi uji
-partisi1 = resultnorm10(1:partisi,1:4);
-partisi2 = resultnorm10(partisi+1:partisi+partisi,1:4);
-partisi3 = resultnorm10(partisi+partisi+1:end,1:4);
+partisi1 = resultnorm10(1:partisi,n:m);
+partisi2 = resultnorm10(partisi+1:partisi+partisi,n:m);
+partisi3 = resultnorm10(partisi+partisi+1:end,n:m);
 partisijurusan1 = Jurusan201620172018(1:partisi,1);
 partisijurusan2 = Jurusan201620172018(partisi+1:partisi+partisi,1);
 partisijurusan3 = Jurusan201620172018(partisi*2+1:end,1);
@@ -55,16 +56,11 @@ panjangpartisilatih2 = length(latihpartisi2);
 panjangpartisilatih3 = length(latihpartisi3);
 
 %knn
-nilaik=1;
-
-%akurasi
-hasilbos=KNN_(nilaik,partisi1,partisijurusan1,latihpartisi1,latihpartisijurusan1);
-
+nilaik=5;
 
 for i = 1:panjangpartisi1
     readbyline = partisi1(i:i,:);
        kelashasil=knnclassify(readbyline,latihpartisi1,latihpartisijurusan1,nilaik);
-       KNN_(nilaik,data,labels,t_data,t_labels)
        hasilbos1(i)=[kelashasil];
 end
 hasilbostrans1=hasilbos1';
@@ -91,16 +87,17 @@ hasilbostrans3=hasilbos3';
 hasilmatrik3=confusionmat(partisijurusan3,hasilbostrans3);
 akurasi3=(sum(diag(hasilmatrik3))/sum(sum(hasilmatrik3)))*100;
 plotConfMat(hasilmatrik3);
+rataakurasi=((akurasi1+akurasi2+akurasi3)/3);
 %data tunggal
-asda = [65 86 67.5 58 69.13	276.50];
-for j = 1:6
-        readcol=asda(1,j:j);
-        minim = min(Nilai201620172018(1:end,j));
-        maxim = max(Nilai201620172018(1:end,j));
-        norm10(j)=(((readcol-minim)*(10-1))/(maxim-minim))+1;
-end
-
-coba = funknn(norm10,resultnorm10,Jurusan201620172018,3);
+% asda = [65 86 67.5 58 69.13	276.50];
+% for j = 1:6
+%         readcol=asda(1,j:j);
+%         minim = min(Nilai201620172018(1:end,j));
+%         maxim = max(Nilai201620172018(1:end,j));
+%         norm10(j)=(((readcol-minim)*(10-1))/(maxim-minim))+1;
+% end
+% 
+% coba = funknn(norm10,resultnorm10,Jurusan201620172018,3);
 % kNNModel = fitcknn(resultnorm10,Jurusan201620172018,'NumNeighbors',3);
 % % coba = knn(resultnorm10, Jurusan201620172018, norm10,3);
 % Group = predict(kNNModel,norm10);
