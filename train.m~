@@ -31,8 +31,11 @@ for i = 1:length(data)
         if (readcol>39) && (readcol<60)
                 nilainya=3;
                 end
-        if readcol<40
+        if (readcol>19) && (readcol<40)
                 nilainya=4;
+        end
+        if readcol<20
+                nilainya=5;
         end
         norm10(j)=nilainya;
     end
@@ -65,10 +68,11 @@ panjangpartisilatih1 = length(latihpartisi1);
 panjangpartisilatih2 = length(latihpartisi2);
 panjangpartisilatih3 = length(latihpartisi3);
 
+label = predict_gnb(X,Y,Xnew)
 %% Testing Side
+nb = fitcnb(latihpartisi1,latihpartisijurusan1); 
 for i = 1:panjangpartisi1
-    testdata = partisi1(i:i,:);
-    Group = predict_gnb(latihpartisi1,latihpartisijurusan1,testdata);
+    Group = predict_gnb(X,Y,Xnew);
        hasilbos1(i)=[Group];
 end
 hasilbostrans1=hasilbos1';
@@ -80,7 +84,7 @@ plotConfMat(hasilmatrik1);
 nb = fitcnb(latihpartisi2,latihpartisijurusan2); 
 for i = 1:panjangpartisi2
     testdata = partisi2(i:i,:);
-    Group = predict_gnb(latihpartisi2,latihpartisijurusan2,testdata);
+    Group = predict(nb,testdata);
        hasilbos2(i)=[Group];
 end
 hasilbostrans2=hasilbos2';
@@ -91,7 +95,7 @@ plotConfMat(hasilmatrik2);
 nb = fitcnb(latihpartisi3,latihpartisijurusan3); 
 for i = 1:panjangpartisi3
     testdata = partisi3(i:i,:);
-    Group = predict_gnb(latihpartisi3,latihpartisijurusan3,testdata);
+    Group = predict(nb,testdata);
        hasilbos3(i)=[Group];
 end
 hasilbostrans3=hasilbos3';
